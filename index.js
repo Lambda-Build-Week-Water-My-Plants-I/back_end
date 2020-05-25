@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const authRouter = require('./auth/auth-router.js');
 const usersRouter = require('./api/users/users-router.js');
-
+const plantsRouter = require('./api/plants/plants-router.js');
 const restricted = require('./auth/restricted-middleware.js');
 
 const server = express();
@@ -14,6 +14,7 @@ const server = express();
       server.use(helmet());
       server.use('/api/auth', authRouter);
       server.use('/api/users', restricted, usersRouter);
+      server.use('/api/plants', restricted, plantsRouter);
 
 server.get('/', (req, res) => {
   res.send(`
