@@ -63,4 +63,18 @@ router.put("/:id", (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  Plants.removePlant(req.params.id)
+    .then(count => {
+      if(count > 0) {
+        res.status(200).json({ message: "Plant has been successfully removed" });
+      } else {
+        res.status(404).json({ err: "This plant was not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ err: "There was an error deleting this plant", err });
+    });
+});
+
 module.exports = router;

@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Users = require('./users-model.js');
-const restricted = require('../../auth/restricted-middleware.js');
 
 router.get('/', (req, res) => {
   Users.find()
@@ -45,7 +44,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', (req, res) => {
   Users.removeUser(req.params.id)
     .then(count => {
       if(count > 0) {

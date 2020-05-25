@@ -37,6 +37,8 @@ function update(id, changes) {
     });
 }
 
-function removePlant() {
-
+function removePlant(id) {
+  return db('plants')
+  .where({ id })
+  .delete();
 }
