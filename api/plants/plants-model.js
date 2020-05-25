@@ -28,8 +28,13 @@ async function add(plant, id) {
     .select('id', 'nickname', 'species', 'h2o_frequency');
 }
 
-function update() {
-
+function update(id, changes) {
+  return db('plants')
+    .where({ id })
+    .update(changes)
+    .then(count => {
+      return count > 0 ? this.findById(id) : null;
+    });
 }
 
 function removePlant() {

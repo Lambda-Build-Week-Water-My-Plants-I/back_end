@@ -46,5 +46,21 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+  Plants.update(id, changes)
+    .then(plant => {
+      if(plant) {
+        res.status(201).json(plant);
+      } else {
+        res.status(500).json({ err: "Could not update plant" });
+      }
+    })
+    .catch(err => {
+      console.log('error', err);
+      res.status(500).json({ err: "There was an error updating plant" });
+    });
+});
 
 module.exports = router;
