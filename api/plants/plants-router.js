@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Plants = require('./plants-model.js');
-const restricted = require('../../auth/restricted-middleware.js');
 
 router.get('/', (req, res) => {
   console.log(req.decodedToken);
@@ -29,7 +28,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', restricted, (req, res) => {
+router.post('/', (req, res) => {
+  console.log(req.decodedToken);
   const added = req.body;
   const id = req.decodedToken.id;
   Plants.add(added, id)

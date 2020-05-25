@@ -53,10 +53,9 @@ auth_router.get('/logout', (req, res) => {
 
 function generateToken(user) {
   const payload = {
-    subject: user.id,
+    id: user.id,
     username: user.username,
-    department: user.deparmtent,
-    role: user.role || 'user'
+    number: user.number
   };
 
 
