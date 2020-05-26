@@ -23,7 +23,7 @@ server.get('/', (req, res) => {
   `);
 });
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`\n == SERVER LISTENING ON PORT: ${PORT} ==`);
+const port = process.env.PORT || 5000;
+server.listen(port, () => {
+  console.log(`\n == SERVER LISTENING ON PORT: ${port} ==`);
 });
