@@ -15,10 +15,10 @@ auth_router.post('/register', (req, res) => {
   } else {
     Users.add(userInfo)
       .then(user => {
-        res.status(201).json(user);
+        res.status(201).json({ user, message: user.message, stack: user.stack });
       })
       .catch(err => {
-        res.status(500).json({ err: "Error registering user" });
+        res.status(500).json({ err: "Error registering user", message: err.message, stack: err.stack });
       });
   }
 });
