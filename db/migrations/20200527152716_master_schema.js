@@ -11,7 +11,7 @@ exports.up = function(knex) {
       tbl.string('password', 128)
         .notNullable();
 
-      tbl.integer('phone_number')
+      tbl.string('phone_number', 20)
         .notNullable();
     })
     .createTable('plants', tbl => {
