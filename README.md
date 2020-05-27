@@ -81,7 +81,7 @@
 |---|---|---|
 | GET | `/api/plants` | If user is logged in, returns an array of all plants (theirs and those of other users) |
 | GET | `/api/plants/:id` | If user is logged in, returns the plant with the specified ID |
-| POST | `/api/plants/` | Adds a plant to currently logged in user |
+| POST | `/api/plants` | Adds a plant to currently logged in user |
 | PUT | `/api/plants/:id` | Edits plant with specified ID |
 | DELETE | `/api/plants/:id` | Deletes plant with specified ID |
 
@@ -97,3 +97,136 @@
 
 ## Database Schema:
 ![Screenshot](dbSchema.JPG)
+
+## Shapes of Responses Returned by Every Endpoint:
+
+#### Shapes of Responses from Users Endpoints:
+
+#### <ins>`/api/users: GET`</ins>
+```
+[
+    {
+        "id": 20,
+        "username": "testUser.901.0631815665126",
+        "phone_number": 1234567890
+    },
+    {
+        "id": 21,
+        "username": "testUser.146.05266932369122",
+        "phone_number": 1234567890
+    },
+    {
+        "id": 22,
+        "username": "testUser.208.88310756153027",
+        "phone_number": 1234567890
+    }
+]
+```
+#### <ins>`/api/users/:id: GET`</ins>
+```
+{
+    "id": 20,
+    "username": "testUser.901.0631815665126",
+    "phone_number": 1234567890
+}
+```
+#### <ins>`/api/users/:id/plants: GET`</ins>
+```
+[
+    {
+        "id": 1,
+        "nickname": "Rose",
+        "species": "Rosidopidus",
+        "h2o_frequency": "Once Daily",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "nickname": "Daff",
+        "species": "Daffidillius",
+        "h2o_frequency": "Once Daily",
+        "user_id": 1
+    }
+]
+```
+#### <ins>`/api/users/:id: PUT`</ins>
+```
+After performing a put request upon a user editing their information (username, password or phone_number) an object with their id, username and phone_number is returned:
+
+{
+    "id": 1,
+    "username": "hellerworld",
+    "phone_number": 2222222222
+}
+```
+#### <ins>`/api/users/:id: DELETE`</ins>
+```
+{
+    "message": "User has been successfully removed"
+}
+```
+
+#### Shapes of Responses from Plants Endpoints:
+
+#### <ins>`/api/plants: GET`</ins>
+```
+[
+    {
+        "id": 1,
+        "nickname": "Rose",
+        "species": "Rosidopidus",
+        "h2o_frequency": "Once Daily",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "nickname": "Daff",
+        "species": "Daffidillius",
+        "h2o_frequency": "Once Daily",
+        "user_id": 1
+    },
+    {
+        "id": 3,
+        "nickname": "Bush",
+        "species": "Busheus",
+        "h2o_frequency": "Once Yearly",
+        "user_id": 2
+    }
+]
+```
+#### <ins>`/api/plants/:id: GET`</ins>
+```
+{
+    "id": 2,
+    "nickname": "Daff",
+    "species": "Daffidillius",
+    "h2o_frequency": "Once Daily",
+    "user_id": 1
+}
+```
+#### <ins>`/api/plants: POST`</ins>
+```
+Server responds with the id of the newly created plant:
+
+[
+  5
+]
+```
+#### <ins>`/api/plants/:id: PUT`</ins>
+```
+After performing a put request upon a user editing a plant's info (nickname, species or h2o_frequency) an object with the edited plant's id, nickname, species, h2o_frequency and user_id is returned:
+
+{
+    "id": 5,
+    "nickname": "MisterPlantigus",
+    "species": "MysteriousPlantious",
+    "h2o_frequency": "Thrice Weekly",
+    "user_id": 37
+}
+```
+#### <ins>`/api/plants/:id: DELETE`</ins>
+```
+{
+    "message": "Plant has been successfully removed"
+}
+```
