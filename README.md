@@ -5,9 +5,10 @@
 1. Run **npm i** from root directory
 1. Run **npm run server** to start the server on your machine (will be running on port 5000)
  * Be sure to have this server running when trying to test your React app.
+ * <b><i>NOTE: To connect to deployed backend instead of localhost, Heroku deployment can be found here: <ins>https://wmplants-db.herokuapp.com/</ins></i></b>
 
 ## Endpoints:
-* Example endpoint would be: *localhost:5000/api/users*
+* Example endpoint would be: **localhost:5000/api/users** <ins>OR</ins> if using deployed backend: **wmplants-db.herokuapp.com/api/users**
 
 #### Register/Login/Logout Endpoints
 
@@ -25,12 +26,28 @@
   "phone_number": 1234567890
 }
 ```
+#### The Data Returned by Server After Registering:
+```
+{
+    "id": 1,
+    "username": "BrandonSanderson",
+    "phone_number": 1234567890
+}
+```
 
 #### Shape of User Required to Login (JSON):
 ```
 {
   "username": "BrandonSanderson",
   "password": "AuthorMan2020"
+}
+```
+#### The Data Returned by Server After Logging In:
+```
+{
+    "id": 1,
+    "welcome": "BrandonSanderson",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJwZXRlcnBhbiIsImlhdCI6MTU5MDUyMzgwNSwiZXhwIjoxNTkwNTQxODA1fQ.J7xBHz_ZbPQDkVIai3kA3XvdYM0akrI2LqqBq9FzeFk"
 }
 ```
 

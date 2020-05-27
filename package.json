@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Lambda-Build-Week-Water-My-Plants-I/back_end#readme",
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"

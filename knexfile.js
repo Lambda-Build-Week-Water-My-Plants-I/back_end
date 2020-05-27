@@ -16,10 +16,29 @@ module.exports = {
       },
     },
     migrations: {
-      directory: './db/migrations',
+      directory: './db/migrations'
     },
     seeds: {
-      directory: './db/seeds',
+      directory: './db/seeds'
+    },
+  },
+
+  testing: {
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: {
+      filename: './db/test.db3',
+    },
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done);
+      },
+    },
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
     },
   },
 
