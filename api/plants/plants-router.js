@@ -11,6 +11,19 @@ router.get('/', (req, res) => {
       res.status(500).json({ err: "Error retrieving plants" });
     });
 });
+router.get('/mine', (req, res) => {
+  const id = req.decodedToken.id;
+
+  Plants.findByUser(id)
+    .then(plant => {
+      console.log(plant);
+      res.status(200).json(plant);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: "Could not retrieve your plants" });
+    });
+});
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
@@ -76,5 +89,9 @@ router.delete('/:id', (req, res) => {
       res.status(500).json({ err: "There was an error deleting this plant", err });
     });
 });
+
+// BACKUP GET USERS PLANT BY USER ID:
+
+
 
 module.exports = router;
