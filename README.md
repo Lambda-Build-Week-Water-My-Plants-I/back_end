@@ -5,7 +5,7 @@
 1. Run **npm i** from root directory
 1. Run **npm run server** to start the server on your machine (will be running on port 5000)
  * Be sure to have this server running when trying to test your React app.
- * <b><i>NOTE: To connect to deployed backend instead of localhost, Heroku deployment can be found here: <ins>https://wmplants-db.herokuapp.com/</ins></i></b>
+ * <b><i>NOTE: To connect to deployed backend instead of localhost, Heroku deployment can be found here: <ins>https://wmplants-db2.herokuapp.com/</ins></i></b>
 
 ## Endpoints:
 * Example endpoint would be: **localhost:5000/api/users** <ins>OR</ins> if using deployed backend: **wmplants-db.herokuapp.com/api/users**
