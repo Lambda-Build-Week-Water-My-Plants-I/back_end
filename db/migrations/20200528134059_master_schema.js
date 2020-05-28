@@ -25,6 +25,8 @@ exports.up = function(knex) {
       tbl.string('h2o_frequency', 25)
         .notNullable();
 
+      tbl.string('image', 255);
+
       tbl.integer('user_id')
         .unsigned()
         .notNullable()

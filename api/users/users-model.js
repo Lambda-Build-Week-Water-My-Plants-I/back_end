@@ -50,7 +50,7 @@ function removeUser (id) {
 function getUsersPlants(id) {
     return db('plants')
     .join('users', 'plants.user_id', 'users.id')
-    .select('plants.id', 'plants.nickname', 'plants.species', 'plants.h2o_frequency', 'plants.user_id')
+    .select('plants.id', 'plants.nickname', 'plants.species', 'plants.h2o_frequency', 'plants.image', 'plants.user_id')
     .where({'user_id' : id})
     .then(plants => {
         if(plants) {
