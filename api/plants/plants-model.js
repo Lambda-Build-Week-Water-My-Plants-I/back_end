@@ -47,8 +47,8 @@ function update(id, changes) {
 
 function removePlant(id) {
   return db('plants')
-  .where({ id })
-  .delete();
+    .where({ id })
+    .delete();
 }
 
 function findByUser(id) {

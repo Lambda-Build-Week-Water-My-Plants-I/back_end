@@ -48,15 +48,18 @@ function removeUser (id) {
 }
 
 function getUsersPlants(id) {
+    // return db('plants')
+    // .join('users', 'plants.user_id', 'users.id')
+    // .select('plants.id', 'plants.nickname', 'plants.species', 'plants.h2o_frequency', 'plants.image', 'plants.user_id')
+    // .where({'plants.user_id' : id})
+    // .then(plants => {
+    //     if(plants) {
+    //       return plants;
+    //     } else {
+    //         return null;
+    //     }
+    // });
     return db('plants')
-    .join('users', 'plants.user_id', 'users.id')
-    .select('plants.id', 'plants.nickname', 'plants.species', 'plants.h2o_frequency', 'plants.image', 'plants.user_id')
-    .where({'plants.user_id' : id})
-    .then(plants => {
-        if(plants) {
-          return plants;
-        } else {
-            return null;
-        }
-    });
+      .select('id', 'nickname', 'species', 'h2o_frequency', 'image', 'user_id')
+      .where('user_id', id);
 }

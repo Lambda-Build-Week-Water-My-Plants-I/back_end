@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
       res.status(500).json({ err: "Error retrieving plants" });
     });
 });
+
 router.get('/mine', (req, res) => {
   const id = req.decodedToken.id;
 
