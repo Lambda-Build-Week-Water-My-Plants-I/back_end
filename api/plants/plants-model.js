@@ -20,12 +20,19 @@ function findById(id) {
     .select('*');
 }
 
+// async function add(plant, id) {
+//   plant.user_id = id;
+//
+//   return db('plants')
+//     .insert(plant)
+//     .select('plant_id', 'nickname', 'species', 'h2o_frequency');
+// }
+
 async function add(plant, id) {
   plant.user_id = id;
+  const [plantid] = await db('plants').insert(plant, 'id');
 
-  return db('plants')
-    .insert(plant)
-    .select('id', 'nickname', 'species', 'h2o_frequency');
+  return findById(plantid);
 }
 
 function update(id, changes) {

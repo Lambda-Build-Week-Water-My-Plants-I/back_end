@@ -23,7 +23,7 @@
 {
   "username": "BrandonSanderson",
   "password": "AuthorMan2020",
-  "phone_number": 1234567890
+  "phone_number": "1234567890"
 }
 ```
 #### The Data Returned by Server After Registering:
@@ -31,7 +31,7 @@
 {
     "id": 1,
     "username": "BrandonSanderson",
-    "phone_number": 1234567890
+    "phone_number": "1234567890"
 }
 ```
 
@@ -91,7 +91,7 @@
   "nickname": "Rose",
   "species": "Rosidopidus", <-- NOT A REQUIRED FIELD
   "h2o_frequency": "Once Daily",
-  "user_id": 1
+  "user_id": 1  <-- AUTOMATICALLY GIVEN TO PLANT BASED ON THE CURRENTLY LOGGED IN USER, SO NO NEED TO ADD THIS AS AN INPUT OF ANY KIND
 }
 ```
 
@@ -108,17 +108,17 @@
     {
         "id": 20,
         "username": "testUser.901.0631815665126",
-        "phone_number": 1234567890
+        "phone_number": "1234567890"
     },
     {
         "id": 21,
         "username": "testUser.146.05266932369122",
-        "phone_number": 1234567890
+        "phone_number": "1234567890"
     },
     {
         "id": 22,
         "username": "testUser.208.88310756153027",
-        "phone_number": 1234567890
+        "phone_number": "1234567890"
     }
 ]
 ```
@@ -127,7 +127,7 @@
 {
     "id": 20,
     "username": "testUser.901.0631815665126",
-    "phone_number": 1234567890
+    "phone_number": "1234567890"
 }
 ```
 #### <ins>`/api/users/:id/plants: GET`</ins>
@@ -156,7 +156,7 @@ After performing a put request upon a user editing their information (username, 
 {
     "id": 1,
     "username": "hellerworld",
-    "phone_number": 2222222222
+    "phone_number": "2222222222"
 }
 ```
 #### <ins>`/api/users/:id: DELETE`</ins>
@@ -206,11 +206,15 @@ After performing a put request upon a user editing their information (username, 
 ```
 #### <ins>`/api/plants: POST`</ins>
 ```
-Server responds with the id of the newly created plant:
+Server responds with the full plant object:
 
-[
-  5
-]
+{
+    "id": 5,
+    "nickname": "MisterPlantigus",
+    "species": "MysteriousPlantious",
+    "h2o_frequency": "Thrice Weekly",
+    "user_id": 37
+}
 ```
 #### <ins>`/api/plants/:id: PUT`</ins>
 ```
@@ -218,7 +222,7 @@ After performing a put request upon a user editing a plant's info (nickname, spe
 
 {
     "id": 5,
-    "nickname": "MisterPlantigus",
+    "nickname": "MisterPlantigusEdited",
     "species": "MysteriousPlantious",
     "h2o_frequency": "Thrice Weekly",
     "user_id": 37
